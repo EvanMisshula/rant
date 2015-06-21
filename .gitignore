@@ -1,0 +1,7 @@
+# ignore Emacs files
+*~
+*#
+# ignore compiled python
+*pyc
+#ignore paramsfile
+sql_params.csv
