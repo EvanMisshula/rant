@@ -3,7 +3,7 @@ import re
 import sqlalchemy
 import os
 import pandas as pd
-#import mysql.connector
+import mysql.connector
 
 import requests # This command allows us to fetch URLs
 from lxml import html # This module will allow us to parse the returned HTML/XML
