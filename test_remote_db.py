@@ -71,7 +71,7 @@ df1=pd.DataFrame(d)
 print("There are %d rows in the dataframe scraped so far." % len(df1.index))
 print("There are %d columns in the dataframe we scraped so far." % len(df1.columns))
 df1.to_sql(name='topics',con=db,schema=None,if_exists='replace',index=True,index_label=None)
-print("saved df1 with %d records." % len(df1.index))
+print("saved df1 with %d records on the %s machine" % len(df1.index), platform.system() )
 
 conn.close()
 db.dispose()
