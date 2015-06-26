@@ -7,12 +7,15 @@ import mysql.connector
 from spider import RantSpider as Rs
 import time
 import random
+import platform
 
+if platform.system() == 'Linux':
+    os.chdir('/home/app/rant')
+    f1 = open("/home/app/rant/db_settings.csv",'r')
+else:
+    os.chdir('/Users/emisshula/Documents/insight/lscrape')
+    f1 = open("/Users/emisshula/Documents/insight/lscrape/db_settings.csv",'r')
 
-os.chdir('/Users/emisshula/Documents/insight/lscrape')
-
-
-f1 = open("/Users/emisshula/Documents/insight/lscrape/db_settings.csv",'r')
 sql_params = f1.read()
 f1.close()
 
