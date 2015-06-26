@@ -3,7 +3,7 @@ import re
 import sqlalchemy
 import os
 import pandas as pd
-import mysql.connector
+#import mysql.connector
 from spider import RantSpider as Rs
 import time
 import random
