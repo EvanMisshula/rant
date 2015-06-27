@@ -16,7 +16,6 @@ else:
     os.chdir('/Users/emisshula/Documents/insight/lscrape')
     f1 = open("/Users/emisshula/Documents/insight/lscrape/db_settings.csv",'r')
 
-    
 sql_params = f1.read()
 f1.close()
 
@@ -25,7 +24,7 @@ conn = db.connect()
 
 mySpider = Rs.RantSpider("http://theerant.yuku.com/forums/58/THEE-RANT/THEE-RANT")
 #response = mySpider.get_response()
-headers= response.headers
+#headers= response.headers
 mySpider.doc = mySpider.get_parsed_doc()
 
 print("retrieved webpage")
@@ -72,7 +71,7 @@ df1=pd.DataFrame(d)
 print("There are %d rows in the dataframe scraped so far." % len(df1.index))
 print("There are %d columns in the dataframe we scraped so far." % len(df1.columns))
 df1.to_sql(name='topics',con=db,schema=None,if_exists='replace',index=True,index_label=None)
-print("saved df1 with %d records on the %s machine" % len(df1.index), platform.system() )
+print("saved df1 with %d records on the %s machine" % (len(df1.index), platform.system()) )
 
 conn.close()
 db.dispose()
