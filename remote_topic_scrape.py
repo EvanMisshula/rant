@@ -135,7 +135,7 @@ while (noMoreForumPages == False):
         noMoreForumPages = True
     else:
         nextForumURL = "http://theerant.yuku.com" + nextForumURL_ant
-    d = { 'Topic' : pd.Series(topic_titles, index=range(len(topic_lastPost_time))), 'topicLastPostTime' : pd.Series(topic_lastPost_time, index=range(len(topic_lastPost_time))), 'topic_replies' : pd.Series(topic_replies, index=range(len(topic_lastPost_time))), 'views' : pd.Series(topic_views, index=range(len(doc_title))), 'forum_link' : pd.Series(topic_head_link, index=range(len(doc_title)))}
+    d = { 'Topic' : pd.Series(topic_titles, index=range(len(topic_lastPost_time))), 'topicLastPostTime' : pd.Series(topic_lastPost_time, index=range(len(topic_lastPost_time))), 'topic_replies' : pd.Series(topic_replies, index=range(len(topic_lastPost_time))), 'views' : pd.Series(topic_views, index=range(len(topic_lastPost_time))), 'forum_link' : pd.Series(topic_head_link, index=range(len(topic_lastPost_time)))}
     df=pd.DataFrame(d)
     print("There are %d rows in the dataframe we are appending" % len(df.index))
     print("There are %d rows in the dataframe scraped so far." % len(df1.index))
