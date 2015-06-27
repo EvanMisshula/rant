@@ -87,7 +87,7 @@ forum_page = 2
 while (noMoreForumPages == False):
     print("Retrieving page: %d of the forum posts." % forum_page)
     time.sleep(random.randint(10,30))
-    mySpider = Rs.RantSpider(nextForumURL, headers = [])
+    mySpider = Rs.RantSpider(nextForumURL)
 #response = mySpider.get_response()
     mySpider.doc = mySpider.get_parsed_doc()
 
