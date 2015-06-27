@@ -18,7 +18,7 @@ import re
 
 class RantSpider(object):
 
-    def __init__(self)
+    def __init__(self):
         self.name = "badCop"
         self.start_urls = start_urls
         self.base_url = "http://theerant.com"
