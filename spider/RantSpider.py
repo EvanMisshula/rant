@@ -24,7 +24,7 @@ class RantSpider(object):
         self.doc = None
 
     def get_response(self):
-        response = requests.get(self.start_urls)
+        response = requests.get(self.start_urls, timeout=None)
         return response
 
     def get_parsed_doc(self):
