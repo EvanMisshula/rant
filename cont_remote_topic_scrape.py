@@ -114,11 +114,13 @@ while (noMoreForumPages == False):
     print("There are %d rows in the dataframe scraped so far." % len(df1.index))
     print("There are %d columns in the dataframe we are appending." % len(df.columns))
     print("There are %d columns in the dataframe we scraped so far." % len(df1.columns))
+    print("We are on %d forum page." % forum_page)    
 
     f1.write("There are %d rows in the dataframe we are appending \n" % len(df.index))
     f1.write("There are %d rows in the dataframe scraped so far. \n" % len(df1.index))
     f1.write("There are %d columns in the dataframe we are appending. \n" % len(df.columns))
     f1.write("There are %d columns in the dataframe we scraped so far. \n" % len(df1.columns))
+    f1.write("We are on %d forum page." % forum_page)    
     df1=pd.concat([df1,df])
     df1.to_sql(name='topics',con=db,schema=None,if_exists='replace',index=True,index_label=None)
     print("saved df1 with %d records." % len(df1.index))
@@ -130,3 +132,6 @@ f1.write("Loop finished. Gathered %d pages of posts.\n" % forum_page)
 f1.close()
 conn.close()
 db.dispose()
+
+
+#13482 process
