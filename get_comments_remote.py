@@ -26,7 +26,7 @@ df1=pd.read_sql_table(table_name='topics',con=db,schema=None)
 df1 = df1[['Topic', 'forum_link', 'topicLastPostTime','topic_replies', 'views']]
 
 topic_head_link =df1['forum_link'].values.tolist()
-
+topic_titles = df1['Topic'].values.tolist()
 
 for topic_idx,topic_val in enumerate(topic_head_link):
     print("topic_idx: %d" % topic_idx)
