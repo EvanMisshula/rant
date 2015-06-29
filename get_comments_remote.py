@@ -54,15 +54,31 @@ for topic_idx,topic_val in enumerate(topic_head_link):
             print("There is another active page on this topic")
         else:
             print("changing topics")
-        auth_series = pd.Series(post_authors, index=range(len(post_time)))
-        comment_series = pd.Series(post_comments, index=range(len(post_time)))
-        time_series = pd.Series(post_time, index=range(len(post_time)))
-        doc_series = pd.Series(doc_title, index=range(len(doc_title)))
+
+        print("len(post_time): %d", len(post_time))
+        print("len(post_comments): %d", len(post_comments))
+        print("len(post_time): %d", len(post_time))
+        print("len(doc_title): %d", len(doc_title))                        
+
+        min_comm = min(len(post_time), len(auth_series), len(comment_series), len(doc_series))
+        max_comm = max(len(post_time), len(auth_series), len(comment_series), len(doc_series))        
+        if min_comm != max_comm:        
+            auth_series = pd.Series(post_authors[min_comm], index=range(min_comm))
+            comment_series = pd.Series(post_comments[min_comm], index=range(min_comm))
+            time_series = pd.Series(post_time[min_comm], index=range(min_comm))
+            doc_series = pd.Series(doc_title[min_comm], index=range(min_comm))
+        else:
+            auth_series = pd.Series(post_authors, index=range(len(post_time)))
+            comment_series = pd.Series(post_comments, index=range(len(post_time)))
+            time_series = pd.Series(post_time, index=range(len(post_time)))
+            doc_series = pd.Series(doc_title, index=range(len(doc_title)))
+
         
         print("len(auth_series):", len(auth_series))
         print("len(comment_series):", len(comment_series))
         print("len(time_series):", len(time_series))
         print("len(doc_series):", len(doc_series))
+
         
         d = { 'authors' : auth_series, 'comments' : comment_series, 'post_time' : time_series, 'document' : doc_series}
         df=pd.DataFrame(d)
