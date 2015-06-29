@@ -33,7 +33,7 @@ topic_titles = df1['Topic'].values.tolist()
 for topic_idx,topic_val in enumerate(topic_head_link):
     print("topic_idx: %d" % topic_idx)
     next_url_list = [topic_head_link[topic_idx]]
-    print("This is the topic title: %s" % topic_titles[topic_idx])
+    print("This is the topic title: %s" % unicode(topic_titles[topic_idx]))
     pages_on_this_topic = 0
     while next_url_list != []:
         print("The url to get is:\n %s" % next_url_list[0])
