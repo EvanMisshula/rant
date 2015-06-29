@@ -65,10 +65,10 @@ for topic_idx,topic_val in enumerate(topic_head_link):
         
         if min_comm != max_comm:
             print("min(com): %d", min_comm)
-            auth_series = pd.Series(post_authors[min_comm], index=range(min_comm))
-            comment_series = pd.Series(post_comments[min_comm], index=range(min_comm))
-            time_series = pd.Series(post_time[min_comm], index=range(min_comm))
-            doc_series = pd.Series(doc_title[min_comm], index=range(min_comm))
+            auth_series = pd.Series(post_authors[:min_comm], index=range(min_comm))
+            comment_series = pd.Series(post_comments[:min_comm], index=range(min_comm))
+            time_series = pd.Series(post_time[:min_comm], index=range(min_comm))
+            doc_series = pd.Series(doc_title[:min_comm], index=range(min_comm))
         else:
             auth_series = pd.Series(post_authors, index=range(len(post_time)))
             comment_series = pd.Series(post_comments, index=range(len(post_time)))
