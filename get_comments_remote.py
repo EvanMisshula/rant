@@ -63,11 +63,13 @@ for topic_idx,topic_val in enumerate(topic_head_link):
             print('This is the first page of comments')
             df.to_sql(name='comments',con=db,schema=None,if_exists='replace',index=True,index_label=None)
             df1=df
+            del df
         else:
             print("There are %d rows in the dataframe scraped so far." % len(df1.index))
             print("There are %d columns in the dataframe we scraped so far." % len(df1.columns))
             df1=pd.concat([df1,df])
             df1.to_sql(name='comments',con=db,schema=None,if_exists='replace',index=True,index_label=None)
+            del df
         print("saved df1 with %d records." % len(df1.index))
         pages_on_this_topic = pages_on_this_topic + 1
         del forumSpider
