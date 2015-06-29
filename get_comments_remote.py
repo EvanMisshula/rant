@@ -61,7 +61,7 @@ for topic_idx,topic_val in enumerate(topic_head_link):
         if topic_idx==0 or pages_on_this_topic==0:
             df.to_sql(name='comments',con=db,schema=None,if_exists='replace',index=True,index_label=None)
             df1=df
-        elif:
+        else:
             df1=pd.concat([df1,df])
             df1.to_sql(name='comments',con=db,schema=None,if_exists='replace',index=True,index_label=None)
         print("saved df1 with %d records." % len(df1.index))
