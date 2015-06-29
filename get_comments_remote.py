@@ -40,7 +40,8 @@ for topic_idx,topic_val in enumerate(topic_head_link):
         forumSpider = Rs.RantSpider(next_url_list[0])
 #        response = forumSpider.get_response()
         forumSpider.doc = forumSpider.get_parsed_doc()
-        post_authors =  [unicode(r.xpath('.//a/text()')[0]) for r in forumSpider.doc.findall('.//td[@class="th firstcol poster-name"]')]
+        post_authors = [r.xpath('text()')[0].encode('utf-8').strip() for r in forumSpider.doc.xpath('.//td[@class="th firstcol poster-name"]//a')]
+#        [r.xpath('.//a/text()')[0].encode('utf-8').strip() for r in forumSpider.doc.findall('.//td[@class="th firstcol poster-name"]')]
         post_time = [ unicode(t.get('datetime')) for t in forumSpider.doc.xpath('.//time[@class="timeago"]')]
         if len(post_time) != len(post_authors):
             post_time=[unicode(r.text) for r in forumSpider.doc.xpath('.//span[@class="date"]')]
