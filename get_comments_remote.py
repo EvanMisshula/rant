@@ -55,7 +55,7 @@ for topic_idx,topic_val in enumerate(topic_head_link):
         else:
             print("changing topics")
 
-        print("len(post_time): %d", len(post_time))
+        print("len(post_authors): %d", len(post_authors))
         print("len(post_comments): %d", len(post_comments))
         print("len(post_time): %d", len(post_time))
         print("len(doc_title): %d", len(doc_title))                        
