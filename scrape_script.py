@@ -140,7 +140,7 @@ while (noMoreForumPages == False):
     print("There are %d columns in the dataframe we are appending." % len(df.columns))
     print("There are %d columns in the dataframe we scraped so far." % len(df1.columns))
     df1=pd.concat([df1,df])
-    df1.to_sql(name='comments',con=db,schema=None,if_exists='replace',index=True,index_label=None)
+    df1.to_sql(name='topics',con=db,schema=None,if_exists='replace',index=True,index_label=None)
     print("saved df1 with %d records." % len(df1.index))
 
 print("Loop finished. Gathered %d pages of posts." % forum_page)
@@ -230,8 +230,12 @@ for topic_idx,topic_val in enumerate(topic_head_link):
         print("There are %d rows in the dataframe scraped so far." % len(df1.index))
         print("There are %d columns in the dataframe we are appending." % len(df.columns))
         print("There are %d columns in the dataframe we scraped so far." % len(df1.columns))
-        df1=pd.concat([df1,df])
-        df1.to_sql(name='comments',con=db,schema=None,if_exists='replace',index=True,index_label=None)
+        if topic_idx==0 or pages_on_this_topic==0:
+            df.to_sql(name='comments',con=db,schema=None,if_exists='replace',index=True,index_label=None)
+            df1=df
+        elif:
+            df1=pd.concat([df1,df])
+            df1.to_sql(name='comments',con=db,schema=None,if_exists='replace',index=True,index_label=None)
         print("saved df1 with %d records." % len(df1.index))
         pages_on_this_topic = pages_on_this_topic + 1
  
