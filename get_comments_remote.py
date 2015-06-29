@@ -36,7 +36,7 @@ for topic_idx,topic_val in enumerate(topic_head_link):
     while next_url_list != []:
         print("The url to get is: %s" % next_url_list[0])
         forumSpider = RantSpider(next_url_list[0])
-         response = forumSpider.get_response()
+#        response = forumSpider.get_response()
         forumSpider.doc = forumSpider.get_parsed_doc()
         post_authors =  [unicode(r.xpath('.//a/text()')[0]) for r in forumSpider.doc.findall('.//td[@class="th firstcol poster-name"]')]
         post_time = [ unicode(t.get('datetime')) for t in forumSpider.doc.xpath('.//time[@class="timeago"]')]
@@ -68,4 +68,6 @@ for topic_idx,topic_val in enumerate(topic_head_link):
         pages_on_this_topic = pages_on_this_topic + 1
  
             
+conn.close()
+db.dispose()
 
