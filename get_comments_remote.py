@@ -88,7 +88,7 @@ for topic_idx,topic_val in enumerate(topic_head_link):
         print("There are %d rows in the dataframe we are appending" % len(df.index))
         print("There are %d columns in the dataframe we are appending." % len(df.columns))
 
-        if topic_idx==0 or pages_on_this_topic==0:
+        if topic_idx==0 and pages_on_this_topic==0:
             print('This is the first page of comments')
             df.to_sql(name='comments',con=db,schema=None,if_exists='replace',index=True,index_label=None)
             df1=df
