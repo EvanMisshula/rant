@@ -54,7 +54,17 @@ for topic_idx,topic_val in enumerate(topic_head_link):
             print("There is another active page on this topic")
         else:
             print("changing topics")
-        d = { 'authors' : pd.Series(post_authors, index=range(len(post_time))), 'comments' : pd.Series(post_comments, index=range(len(post_time))), 'post_time' : pd.Series(post_time, index=range(len(post_time))), 'document' : pd.Series(doc_title, index=range(len(doc_title)))}
+        auth_series = pd.Series(post_authors, index=range(len(post_time)))
+        comment_series = pd.Series(post_comments, index=range(len(post_time)))
+        time_series = pd.Series(post_time, index=range(len(post_time)))
+        doc_series = pd.Series(doc_title, index=range(len(doc_title)))
+        
+        print("len(auth_series):", len(auth_series))
+        print("len(comment_series):", len(comment_series))
+        print("len(time_series):", len(time_series))
+        print("len(doc_series):", len(doc_series))
+        
+        d = { 'authors' : auth_series, 'comments' : comment_series, 'post_time' : time_series, 'document' : doc_series}
         df=pd.DataFrame(d)
         print("There are %d rows in the dataframe we are appending" % len(df.index))
         print("There are %d columns in the dataframe we are appending." % len(df.columns))
