@@ -63,7 +63,8 @@ for topic_idx,topic_val in enumerate(topic_head_link):
         min_comm = min(len(post_time), len(post_authors), len(post_comments), len(doc_title))
         max_comm = max(len(post_time), len(post_authors), len(post_comments), len(doc_title))
         
-        if min_comm != max_comm:        
+        if min_comm != max_comm:
+            print("min(com): %d". min_comm)
             auth_series = pd.Series(post_authors[min_comm], index=range(min_comm))
             comment_series = pd.Series(post_comments[min_comm], index=range(min_comm))
             time_series = pd.Series(post_time[min_comm], index=range(min_comm))
