@@ -19,6 +19,8 @@ else:
 sql_params = f1.read()
 f1.close()
 
+baseForumURL = 'http://theerant.yuku.com'
+
 db = sqlalchemy.create_engine(sql_params)
 conn = db.connect()
     #some simple data operations
