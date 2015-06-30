@@ -8,6 +8,7 @@ from spider import RantSpider as Rs
 import time
 import random
 import platform
+import time
 
 if platform.system() == 'Linux':
     os.chdir('/home/app/rant')
@@ -92,6 +93,7 @@ for topic_idx,topic_val in enumerate(topic_head_link):
             print('This is the first page of comments')
             df.to_csv('comments.csv',index=False,encoding='utf-8',sep='\t')
             df.to_sql(name='comments',con=db,schema=None,if_exists='replace',index=True,index_label=None)
+            time.sleep(10)
             df1=df
             del df
         else:
@@ -100,6 +102,7 @@ for topic_idx,topic_val in enumerate(topic_head_link):
             df1=pd.concat([df1,df])
             df1.to_csv('comments.csv',index=False,encoding='utf-8',sep="\t")            
             df1.to_sql(name='comments',con=db,schema=None,if_exists='replace',index=True,index_label=None)
+            time.sleep(10)
             del df
         print("saved df1 with %d records." % len(df1.index))
         pages_on_this_topic = pages_on_this_topic + 1
