@@ -287,3 +287,5 @@ d = {'one' : Series([1., 2., 3.], index=['a', 'b', 'c']),
 conn.close()
 db.dispose()
  
+
+
