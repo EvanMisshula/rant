@@ -13,7 +13,7 @@ South==1.0.2
 Sphinx==1.2.2
 Twisted==15.2.1
 Unirest==1.1.7
-Werkzeug==0.10.4
+Werkzeug==0.15.3
 backports.ssl-match-hostname==3.4.0.2
 beautifulsoup4==4.3.2
 certifi==14.05.14
