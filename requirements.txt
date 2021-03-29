@@ -6,7 +6,7 @@ MarkupSafe==0.23
 MySQL-python==1.2.5
 PyMySQL==0.6.6
 PyYAML==3.11
-Pygments==1.6
+Pygments==2.7.4
 SQLAlchemy==1.0.5
 Scrapy==0.24.6
 South==1.0.2
