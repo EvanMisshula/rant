@@ -31,7 +31,7 @@ gunicorn==19.2.1
 httplib2==0.9
 idna==1.1
 ipaddress==1.0.7
-ipython==3.1.0
+ipython==7.16.3
 itsdangerous==0.24
 jsonschema==2.4.0
 key-mon==1.16
